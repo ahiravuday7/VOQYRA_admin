@@ -1,30 +1,33 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
 import App from "./App";
 
 describe("Admin App", () => {
-  it("renders the Vite starter screen and increments the counter", async () => {
-    const user = userEvent.setup();
-
+  it("renders the VOQYRA admin design-system foundation", () => {
     render(<App />);
 
     expect(
       screen.getByRole("heading", {
-        name: "Get started",
+        name: "Commerce operations",
       }),
     ).toBeInTheDocument();
 
-    const counterButton = screen.getByRole("button", {
-      name: "Count is 0",
-    });
+    expect(
+      screen.getByRole("heading", {
+        name: "Today's operations",
+      }),
+    ).toBeInTheDocument();
 
-    await user.click(counterButton);
+    expect(
+      screen.getByRole("heading", {
+        name: "Operational queues",
+      }),
+    ).toBeInTheDocument();
 
     expect(
       screen.getByRole("button", {
-        name: "Count is 1",
+        name: "View storefront",
       }),
     ).toBeInTheDocument();
   });
